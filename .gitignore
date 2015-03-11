@@ -8,8 +8,8 @@
 .profile
 
 #####
-#
+# Xcode files
 
 MOAIEditor.xcodeproj
 Info.plist
-libs/
+/libs
