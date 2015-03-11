@@ -10,6 +10,11 @@
 #####
 # Xcode files
 
-MOAIEditor.xcodeproj
-Info.plist
-libs/
+/MOAIEditor.xcodeproj
+/Info.plist
+/libs/
+/*.cpp
+/*.h
+
+!*/*.cpp
+!*/*.h
