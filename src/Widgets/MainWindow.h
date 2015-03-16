@@ -1,6 +1,7 @@
 #include <QtGui>
 
 #include "MOAIWidget.h"
+#include "SizeDock.h"
 #include "LogDock.h"
 
 #include "ui_mainwindow.h"
@@ -34,9 +35,9 @@ private:
     Ui::MainWindow *ui;
     
 	QScrollArea *scrollArea;
+	SizeDock *sizeDock;
 	MOAIWidget *moaiWidget;
 
 	QMenu *menuView;
-	LogDock *logDock;
 	QFileDialog *fileDialog;
 };

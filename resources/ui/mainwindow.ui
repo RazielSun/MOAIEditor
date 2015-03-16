@@ -22,6 +22,14 @@
   <property name="styleSheet">
    <string notr="true">#centralwidget {
 background-color:#556270;
+}
+#menuBar, #menuProject, #menuView {
+background-color: #D3DADF;
+border: 0px;
+}
+#toolBar {
+background-color: #D3DADF;
+border: 0px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
@@ -31,7 +39,7 @@ background-color:#556270;
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuProject">
@@ -58,10 +66,7 @@ background-color:#556270;
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">#toolBar {
-background-color: white;
-border: 0px;
-}</string>
+    <string notr="true"/>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SizeDockWidget</class>
- <widget class="QDockWidget" name="SizeDockWidget">
+ <class>SizeDock</class>
+ <widget class="QDockWidget" name="SizeDock">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,9 +19,9 @@
   <property name="windowTitle">
    <string>Size</string>
   </property>
-  <widget class="QWidget" name="dockWidgetContents">
+  <widget class="QWidget" name="contents">
    <property name="styleSheet">
-    <string notr="true">#dockWidgetContents {
+    <string notr="true">#contents {
 background-color: #D3DADF;
 }
 
@@ -49,7 +49,14 @@ border: 0px;
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="widthEdit"/>
+      <widget class="QLineEdit" name="widthEdit">
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="heightLabel">
@@ -59,7 +66,11 @@ border: 0px;
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="heightEdit"/>
+      <widget class="QLineEdit" name="heightEdit">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="dpiLabel">
@@ -69,7 +80,11 @@ border: 0px;
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="dpiEdit"/>
+      <widget class="QLineEdit" name="dpiEdit">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -85,6 +100,9 @@ border: 0px;
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QPushButton" name="phoneBtn">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -102,6 +120,9 @@ border: 0px;
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="phonehBtn">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -131,6 +152,9 @@ border: 0px;
          <height>36</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true"/>
        </property>
@@ -151,6 +175,9 @@ border: 0px;
      </item>
      <item row="1" column="0">
       <widget class="QPushButton" name="phoneBtnL">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -168,6 +195,9 @@ border: 0px;
      </item>
      <item row="1" column="1">
       <widget class="QPushButton" name="phonehBtnL">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -185,6 +215,9 @@ border: 0px;
      </item>
      <item row="1" column="2">
       <widget class="QPushButton" name="padBtnL">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -207,5 +240,110 @@ border: 0px;
  <resources>
   <include location="../images.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>padBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>SizeDock</receiver>
+   <slot>clickResizePad()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>261</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>padBtnL</sender>
+   <signal>clicked()</signal>
+   <receiver>SizeDock</receiver>
+   <slot>clickResizePadL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>261</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>phoneBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>SizeDock</receiver>
+   <slot>clickResizePhone()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>phoneBtnL</sender>
+   <signal>clicked()</signal>
+   <receiver>SizeDock</receiver>
+   <slot>clickResizePhoneL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>phonehBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>SizeDock</receiver>
+   <slot>clickResizePhoneH()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>phonehBtnL</sender>
+   <signal>clicked()</signal>
+   <receiver>SizeDock</receiver>
+   <slot>clickResizePhoneHL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>clickResizePad()</slot>
+  <slot>clickResizePadL()</slot>
+  <slot>clickResizePhone()</slot>
+  <slot>clickResizePhoneL()</slot>
+  <slot>clickResizePhoneH()</slot>
+  <slot>clickResizePhoneHL()</slot>
+ </slots>
 </ui>

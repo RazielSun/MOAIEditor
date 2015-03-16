@@ -61,6 +61,9 @@ void MainWindow::createDocks()
     //logDock = new LogDock( tr("Log"), this );
     //addDockWidget(Qt::BottomDockWidgetArea, logDock);
     //menuView->addAction(logDock->toggleViewAction());
+    sizeDock = new SizeDock( tr("Size"), this );
+    addDockWidget(Qt::LeftDockWidgetArea, sizeDock);
+    menuView->addAction(sizeDock->toggleViewAction());
 };
 
 void MainWindow::loadSettings()
