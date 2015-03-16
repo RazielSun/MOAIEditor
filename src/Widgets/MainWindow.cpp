@@ -5,6 +5,10 @@ MainWindow::MainWindow() : ui(new Ui::MainWindow)
     ui->setupUi(this);
     setWindowState(Qt::WindowMaximized);
     
+    moaiProjectPath = "";
+    settingsFile = QApplication::applicationDirPath() + "Settings/settings.ini";
+    loadSettings();
+    
     moaiWidget = MOAIWidget::getInstance();
     
     scrollArea = new QScrollArea( this );
@@ -16,10 +20,6 @@ MainWindow::MainWindow() : ui(new Ui::MainWindow)
 	createActions();
 	createMenus();
     createDocks();
-
-    moaiProjectPath = "";
-    settingsFile = QApplication::applicationDirPath() + "Settings/settings.ini";
-    loadSettings();
 
     loadProject();
 };

@@ -10,10 +10,10 @@ class MOAIWidget : public QGLWidget
 	Q_OBJECT
 
 public:
-	MOAIWidget(QWidget* parent = 0);
+	MOAIWidget( QWidget* parent = 0, int width = 320, int height = 480 );
 	virtual ~MOAIWidget();
 
-	static MOAIWidget* getInstance ();
+	static MOAIWidget* getInstance ( int width = 320, int height = 480 );
 
 	void refreshContext();
 

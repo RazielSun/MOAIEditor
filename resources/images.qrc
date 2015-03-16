@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="main">
+    <file>images/folder.png</file>
+    <file>images/refresh.png</file>
+  </qresource>
+  <qresource prefix="device">
+    <file>images/ipad-landscape.png</file>
+    <file>images/ipad-portrait.png</file>
+    <file>images/phone-landscape.png</file>
+    <file>images/phone-portrait.png</file>
+    <file>images/phone568h-landscape.png</file>
+    <file>images/phone568h-portrait.png</file>
+  </qresource>
+</RCC>

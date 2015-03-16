@@ -62,5 +62,7 @@ SOURCES += 	src/*.cpp \
 			src/Widgets/*.cpp \
 			src/host-modules/*.cpp \
 
+RESOURCES = resources/images.qrc
+
 FORMS    += resources/ui/*.ui
 

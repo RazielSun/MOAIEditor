@@ -1,9 +1,13 @@
+#include <stdio.h>
+#include <string>
 #include <QDebug>
 #include <QMouseEvent>
 #include <QWheelEvent>
 #include <QKeyEvent>
 
 #include "MOAIWidget.h"
+
+using namespace std;
 
 namespace InputDeviceID
 {
@@ -52,10 +56,11 @@ void setSimStepHandler( double newStep )
 
 MOAIWidget* MOAIWidget::instance_ = 0;
 
-MOAIWidget::MOAIWidget(QWidget* parent) : QGLWidget(parent)
+MOAIWidget::MOAIWidget(QWidget* parent, int width, int height) : QGLWidget(parent)
 {
 	_glReady = false;
 	_windowReady = false;
+    resize(width, height);
 
 	refreshContext();
 	setMouseTracking(true);
@@ -71,11 +76,11 @@ MOAIWidget::~MOAIWidget()
     AKUAppFinalize();
 }
 
-MOAIWidget* MOAIWidget::getInstance ()
+MOAIWidget* MOAIWidget::getInstance(int width, int height)
 {
     if ( instance_ == NULL )
     {
-        instance_ = new MOAIWidget();
+        instance_ = new MOAIWidget(0, width, height);
     }
     return instance_;
 }
@@ -121,7 +126,8 @@ void MOAIWidget::openWindow ( const char* title, int width, int height )
 
     setWindowTitle( QString ( title ));
 
-    resize( width, height );
+    AKUSetScreenSize(width, height);
+    AKUSetViewSize(width, height);
 
     _windowReady = true;
 }
@@ -203,7 +209,13 @@ void MOAIWidget::setLua()
 {
 	runString("os.setlocale('C')");
 	AKUModulesRunLuaAPIWrapper();
-	runString("MOAIEnvironment.setValue('horizontalResolution', 100 ) MOAIEnvironment.setValue('verticalResolution', 100)");
+    string env1 = "MOAIEnvironment.setValue('horizontalResolution',";
+    string env2 = " ) MOAIEnvironment.setValue('verticalResolution',";
+    string env3 = ")";
+    char* buffer = new char[env1.length() + env2.length() + env3.length() + 32];
+    sprintf(buffer, "%s%d%s%d%s", env1.c_str(), width(), env2.c_str(), height(), env3.c_str());
+    qDebug() << buffer;
+	runString(buffer);
 };
 
 void MOAIWidget::setWorkingDirectory( char const* path )

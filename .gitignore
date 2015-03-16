@@ -12,7 +12,7 @@
 
 /MOAIEditor.xcodeproj
 /Info.plist
-/libs/
+libs
 /*.cpp
 /*.h
 
